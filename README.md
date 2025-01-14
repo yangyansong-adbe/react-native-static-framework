@@ -5,15 +5,15 @@
 ### Steps to Reproduce the Issue
 
 1. Encounter the following error when importing Swift modules in the `AppDelegate.mm` file:
-2. 
+
    ![Error Screenshot](./screenshots/1.png)
 
-3. Following the guidance in this [documentation](https://github.com/adobe/aepsdk-react-native?tab=readme-ov-file#troubleshooting-and-known-issues), add the C++ compiler flag in Xcode:
-4. 
+2. Following the guidance in this [documentation](https://github.com/adobe/aepsdk-react-native?tab=readme-ov-file#troubleshooting-and-known-issues), add the C++ compiler flag in Xcode:
+ 
    ![Compiler Flag Screenshot](./screenshots/2.png)
 
-5. Recompile the project and observe the "include of non-modular header inside framework module" error:
-6. 
+3. Recompile the project and observe the "include of non-modular header inside framework module" error:
+ 
    ![Error Screenshot](./screenshots/3.png)
 
 ### Solution
