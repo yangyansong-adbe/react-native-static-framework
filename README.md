@@ -28,7 +28,7 @@ In your Xcode project:
 
 ### Solution 2
 
-1. Remove the C++ compiler flag, `-fcxx-modules`, mentioned in the troubleshooting guide.
+1. If you added the C++ compiler flag `-fcxx-modules` while following the troubleshooting guide, please remove it.
 
 ![Solution Screenshot](./screenshots/5.png)
 
