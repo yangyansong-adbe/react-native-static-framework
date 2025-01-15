@@ -13,7 +13,7 @@
 3. Recompile the project and observe the "include of non-modular header inside framework module" error:
    ![Error Screenshot](./screenshots/3.png)
 
-### Solution
+### Solution 1
 
 In your Xcode project:
 
@@ -21,3 +21,33 @@ In your Xcode project:
 - Set `Allow Non-modular includes in Framework Modules` to "Yes" (the default is "No").
 - Clean and rebuild the project.
    ![Solution Screenshot](./screenshots/4.png)
+
+### Solution 2
+
+1. Remove the C++ compiler flag, `-fcxx-modules`, mentioned in the troubleshooting guide.
+
+![Solution Screenshot](./screenshots/5.png)
+
+2. Move the Adobe SDK initialization code to a separete Objective-C file.
+
+    - Refer to [AdobeBridge.h](./StaticFrameworkTestApp/ios/StaticFrameworkTestApp/AdobeBridge.h)
+    - Refer to [AdobeBridge.m](./StaticFrameworkTestApp/ios/StaticFrameworkTestApp/AdobeBridge.m)
+
+3. In the `AppDelegate.mm` file, import the header file and invoke the Objective-C function to intialize the Adobe SDK.
+
+   - Refer to [AppDelegate.mm](./StaticFrameworkTestApp/ios/StaticFrameworkTestApp/AppDelegate.mm)
+
+```objc
+#import "AdobeBridge.h"
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  
+  // ...
+  
+  [AdobeBridge initializeAdobeSDK];
+  
+  // ...
+  
+}
+```

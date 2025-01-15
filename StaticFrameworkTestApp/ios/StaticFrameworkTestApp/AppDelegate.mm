@@ -2,11 +2,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 
-@import AEPCore;
-@import AEPLifecycle;
-@import AEPIdentity;
-@import AEPSignal;
-@import AEPServices;
+#import "AdobeBridge.h"
 
 @implementation AppDelegate
 
@@ -17,18 +13,8 @@
   // They will be passed down to the ViewController used by React Native.
   self.initialProps = @{};
   
-  [AEPMobileCore setLogLevel: AEPLogLevelTrace];
-  NSArray *extensionsToRegister = @[
-                                  AEPMobileIdentity.class,
-                                  AEPMobileLifecycle.class,
-                                  AEPMobileSignal.class
-                                ];
-  [AEPMobileCore registerExtensions:extensionsToRegister completion:^{
-    [AEPMobileCore lifecycleStart:@{@"contextDataKey": @"contextDataVal"}];
-  }];
+  [AdobeBridge initializeAdobeSDK];
   
-  [AEPMobileCore configureWithAppId:@"app_id_here"];
-
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 

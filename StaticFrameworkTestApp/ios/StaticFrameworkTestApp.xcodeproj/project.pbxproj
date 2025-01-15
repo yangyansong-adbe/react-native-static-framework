@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1BF4DC732D38036F005DE37B /* AdobeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF4DC722D38036F005DE37B /* AdobeBridge.m */; };
 		4650003AA8D2FDA3600C0FC3 /* Pods_StaticFrameworkTestApp_StaticFrameworkTestAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31F29F51A69237DF1DEFA99 /* Pods_StaticFrameworkTestApp_StaticFrameworkTestAppTests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8F5548797D028686FFC37766 /* Pods_StaticFrameworkTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFACB76195E92FB41210A67 /* Pods_StaticFrameworkTestApp.framework */; };
@@ -38,6 +39,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = StaticFrameworkTestApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = StaticFrameworkTestApp/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = StaticFrameworkTestApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1BF4DC712D38036F005DE37B /* AdobeBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdobeBridge.h; sourceTree = "<group>"; };
+		1BF4DC722D38036F005DE37B /* AdobeBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdobeBridge.m; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-StaticFrameworkTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaticFrameworkTestApp.debug.xcconfig"; path = "Target Support Files/Pods-StaticFrameworkTestApp/Pods-StaticFrameworkTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-StaticFrameworkTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaticFrameworkTestApp.release.xcconfig"; path = "Target Support Files/Pods-StaticFrameworkTestApp/Pods-StaticFrameworkTestApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-StaticFrameworkTestApp-StaticFrameworkTestAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StaticFrameworkTestApp-StaticFrameworkTestAppTests.debug.xcconfig"; path = "Target Support Files/Pods-StaticFrameworkTestApp-StaticFrameworkTestAppTests/Pods-StaticFrameworkTestApp-StaticFrameworkTestAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				1BF4DC712D38036F005DE37B /* AdobeBridge.h */,
+				1BF4DC722D38036F005DE37B /* AdobeBridge.m */,
 			);
 			name = StaticFrameworkTestApp;
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				1BF4DC732D38036F005DE37B /* AdobeBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +488,7 @@
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-StaticFrameworkTestApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
@@ -503,7 +509,6 @@
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 					"-Wno-comma",
 					"-Wno-shorten-64-to-32",
-					"-fcxx-modules",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -523,7 +528,7 @@
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-StaticFrameworkTestApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = StaticFrameworkTestApp/Info.plist;
